@@ -13,5 +13,5 @@ export const typeOrmConfig: TypeOrmModuleOptions = {
   entities: [User, Report],
   migrations: ['dist/migrations/*.js'],
   synchronize: false,
-  migrationsRun: false,
+  migrationsRun: true,
 };

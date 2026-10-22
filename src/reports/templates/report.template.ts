@@ -7,7 +7,7 @@ const etiquetasSeveridad: Record<Severity, string> = {
   [Severity.HIGH]: 'Alta',
 };
 
-export function generateReportTemplate(dto: CreateReportDto): string {
+export function generateReportTemplate(dto: CreateReportDto, photoUrl: string): string {
   return `
     <!DOCTYPE html>
     <html lang="es">
@@ -48,6 +48,7 @@ export function generateReportTemplate(dto: CreateReportDto): string {
                         <td style="border: 1px solid #e2e8f0; color: #334155;">${dto.reporterPhone}</td>
                       </tr>
                     </table>
+                    <img src="${photoUrl}" alt="Foto de la fuga" width="552" style="display: block; max-width: 100%; margin-top: 16px; border-radius: 4px;" />
                   </td>
                 </tr>
                 <tr>

@@ -28,12 +28,20 @@ describe('ReportsService', () => {
         severity: Severity.HIGH,
         reporterPhone: '5512345678',
       };
-      const reporteGuardado = { id: 1, ...dto, isResolved: false, createdAt: new Date() };
+      const photoUrl = 'https://bucket.s3.us-east-1.amazonaws.com/reports/foto.jpg';
+      const reporteGuardado = {
+        id: 1,
+        ...dto,
+        photoUrl,
+        repairPhotoUrl: null,
+        isResolved: false,
+        createdAt: new Date(),
+      };
       reportsRepository.create.mockResolvedValue(reporteGuardado);
 
-      const resultado = await reportsService.create(dto);
+      const resultado = await reportsService.create(dto, photoUrl);
 
-      expect(reportsRepository.create).toHaveBeenCalledWith(dto);
+      expect(reportsRepository.create).toHaveBeenCalledWith({ ...dto, photoUrl });
       expect(resultado).toEqual(reporteGuardado);
     });
   });
@@ -47,6 +55,8 @@ describe('ReportsService', () => {
           description: 'Fuga en la banqueta',
           severity: Severity.LOW,
           reporterPhone: '5512345678',
+          photoUrl: 'https://bucket.s3.us-east-1.amazonaws.com/reports/foto.jpg',
+          repairPhotoUrl: null,
           isResolved: false,
           createdAt: new Date(),
         },

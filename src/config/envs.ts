@@ -17,5 +17,10 @@ export const envs = {
   mailFrom: env.get('MAIL_FROM').required().asString(),
   mailSecure: env.get('MAIL_SECURE').default('false').asBool(),
 
+  awsRegion: env.get('AWS_REGION').required().asString(),
+  awsBucketName: env.get('AWS_BUCKET_NAME').required().asString(),
+  awsAccessKeyId: env.get('AWS_ACCESS_KEY_ID').required().asString(),
+  awsSecretAccessKey: env.get('AWS_SECRET_ACCESS_KEY').required().asString(),
+
   maintenanceCrewEmail: env.get('MAINTENANCE_CREW_EMAIL').required().asString(),
 };

@@ -4,7 +4,7 @@ import { User } from '../users/entities/user.entity';
 import { Report } from '../reports/entities/report.entity';
 import { envs } from './envs';
 
-export const AppDataSource = new DataSource({
+export default new DataSource({
   type: 'postgres',
   host: envs.databaseHost,
   port: envs.databasePort,
@@ -15,5 +15,3 @@ export const AppDataSource = new DataSource({
   migrations: ['src/migrations/*.ts'],
   synchronize: false,
 });
-
-export default AppDataSource;

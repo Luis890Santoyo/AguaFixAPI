@@ -5,7 +5,7 @@ export class CreateInitialTables1789172804896 implements MigrationInterface {
 
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.query(
-      `CREATE TYPE "public"."WATER_REPORT_severity_enum" AS ENUM('low', 'medium', 'high')`,
+      `CREATE TYPE water_report_severity_enum AS ENUM('low', 'medium', 'high')`,
     );
 
     await queryRunner.createTable(
@@ -58,7 +58,7 @@ export class CreateInitialTables1789172804896 implements MigrationInterface {
           },
           {
             name: 'severity',
-            type: 'WATER_REPORT_severity_enum',
+            type: 'water_report_severity_enum',
             enum: ['low', 'medium', 'high'],
           },
           {
@@ -83,6 +83,6 @@ export class CreateInitialTables1789172804896 implements MigrationInterface {
   public async down(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.dropTable('WATER_REPORT');
     await queryRunner.dropTable('SYSTEM_USER');
-    await queryRunner.query(`DROP TYPE "public"."WATER_REPORT_severity_enum"`);
+    await queryRunner.query(`DROP TYPE water_report_severity_enum`);
   }
 }
