@@ -28,7 +28,7 @@ export function generateReportTemplate(dto: CreateReportDto, photoUrl: string): 
                 <tr>
                   <td style="padding: 24px;">
                     <p style="color: #334155; font-size: 14px; margin: 0 0 16px 0;">
-                      Se registró un nuevo reporte ciudadano. A continuación los detalles:
+                      Se registro un reporte ciudadano de estado nuevo. A continuación los detalles:
                     </p>
                     <table role="presentation" width="100%" cellpadding="8" cellspacing="0" style="border-collapse: collapse;">
                       <tr>
